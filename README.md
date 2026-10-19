@@ -6,8 +6,8 @@ AI Innovation Hackathon 2026 · Track 1: AI/ML Methodology · Challenge 10: Time
 
 ## Team
 
-- Team name: Unseen
-- Members: **[Name — role]**, **[Name — role]**, **[Name — role]**, **[Name — role]**
+- Team name: **Un4seen**
+- Members: **Likhitha Yepalagunta - RUL modeling and validation**, **Keerthi Sree- Data pipeline and stream replay**, **Nandini-Interface and visual explanation**, **Niharika - Integration, evidence and pitch**
 - Repository: https://github.com/likhithayepalagunta-19/TimeGuardAI
 
 ## Current delivery status
