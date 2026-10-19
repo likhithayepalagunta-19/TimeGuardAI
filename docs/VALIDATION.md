@@ -12,3 +12,9 @@
 - Actual benchmark outputs are saved in `reports/`. They are specific to the recorded splits and environment. Streamlit source compiles, but the Streamlit UI itself has not been interactively inspected in this run.
 - RUL evaluation completed on 100 engines. Official-test coverage is 84% for nominal 90%, an unmet target. AI4I evaluation completed on 2,000 holdout rows. Keep zero TWF/RNF recall visible.
 - TreeSHAP export has not been executed. Full maintenance-cost simulation and end-to-end latency remain unmeasured.
+
+Canonical destination verification:
+- Installed project dependencies in C:\Users\likhi\OneDrive\Documents\TimeGuard\.venv.
+- Four core tests pass using that environment.
+- Headless Streamlit checks pass: load actual RUL weights, advance one replay cycle, and run manufacturing diagnosis. This does not claim interactive browser inspection of Streamlit.
+- Local and GitHub main are synchronized. Raw data, model binaries and the environment remain local and ignored.
