@@ -1,0 +1,12 @@
+{
+  "cmapss": {
+    "source": "https://data.nasa.gov/docs/legacy/CMAPSSData.zip",
+    "sha256": "74bef434a34db25c7bf72e668ea4cd52afe5f2cf8e44367c55a82bfd91a5a34f",
+    "bytes": 12425978
+  },
+  "ai4i": {
+    "source": "https://archive.ics.uci.edu/static/public/601/ai4i+2020+predictive+maintenance+dataset.zip",
+    "sha256": "f601f14294bcf190f9d720676b7f0aea46a26cde9ab8ebc7b4f8174d9d26b252",
+    "bytes": 522170
+  }
+}

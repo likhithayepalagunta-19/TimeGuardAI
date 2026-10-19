@@ -1,0 +1,36 @@
+{
+  "test_engine_count": 100,
+  "excluded_short_engines": 0,
+  "calibration_engine_count": 20,
+  "qhat_raw_rul": 3.2986262974344065,
+  "median": {
+    "rmse_clipped": 14.081800394080593,
+    "rmse_raw": 14.90066396168718,
+    "nasa_score_raw": 398.7798437374006,
+    "late_rate": 0.65
+  },
+  "decision_tau_020": {
+    "rmse_clipped": 15.808565218358853,
+    "rmse_raw": 17.621846935476995,
+    "nasa_score_raw": 418.70838381046303,
+    "late_rate": 0.28
+  },
+  "baseline": {
+    "rmse_clipped": 13.045922701186836,
+    "rmse_raw": 14.214967425372583,
+    "nasa_score_raw": 308.42161345406896,
+    "late_rate": 0.62
+  },
+  "coverage_90_raw": 0.84,
+  "mean_width": 54.27088390629396,
+  "validation_coverage_raw": 0.9,
+  "bundle_model_only_ms_p50": 4.353749973233789,
+  "bundle_model_only_ms_p95": 7.918460009386762,
+  "protocol": "One official final endpoint per eligible test engine; calibration endpoints at random 60-95 percent lifetime. Model trained on capped RUL; interval calibrated against raw RUL.",
+  "environment": {
+    "python": "3.12.14",
+    "sklearn": "1.9.1",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 3, GenuineIntel",
+    "seed": 42
+  }
+}

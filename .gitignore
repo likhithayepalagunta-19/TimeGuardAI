@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+data/raw/
+data/processed/
+models/*.joblib
+build/
+.codex-finalizer/
+.DS_Store
+
+.pytest_cache/
+.streamlit/secrets.toml
+~$*

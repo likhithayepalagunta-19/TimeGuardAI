@@ -1,0 +1,55 @@
+{
+  "split": "Stratified binary random 80/20; generated-row dependence remains a limitation",
+  "threshold": 0.5,
+  "labels": {
+    "binary": {
+      "precision": 0.9491525423728814,
+      "recall": 0.8235294117647058,
+      "f1": 0.8818897637795275,
+      "pr_auc": 0.8824145976134058,
+      "positive_support": 68
+    },
+    "TWF": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pr_auc": 0.07235831146698717,
+      "positive_support": 10
+    },
+    "HDF": {
+      "precision": 0.9310344827586207,
+      "recall": 0.9310344827586207,
+      "f1": 0.9310344827586207,
+      "pr_auc": 0.9454965652166849,
+      "positive_support": 29
+    },
+    "PWF": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "pr_auc": 0.9999999999999998,
+      "positive_support": 13
+    },
+    "OSF": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "pr_auc": 1.0,
+      "positive_support": 16
+    },
+    "RNF": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pr_auc": 0.03213553113553114,
+      "positive_support": 4
+    }
+  },
+  "rn_limit": "Random failures are not physically predictable from these inputs.",
+  "environment": {
+    "python": "3.12.14",
+    "sklearn": "1.9.1",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 3, GenuineIntel",
+    "seed": 42
+  }
+}
