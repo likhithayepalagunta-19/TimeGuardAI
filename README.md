@@ -6,7 +6,7 @@ AI Innovation Hackathon 2026 · Track 1: AI/ML Methodology · Challenge 10: Time
 
 ## Team
 
-- Team name: **[Insert registered team name]**
+- Team name: Unseen
 - Members: **[Name — role]**, **[Name — role]**, **[Name — role]**, **[Name — role]**
 - Repository: https://github.com/likhithayepalagunta-19/TimeGuardAI
 
