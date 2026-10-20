@@ -7,9 +7,14 @@
 - Offline fallback uses real recorded model predictions and TreeSHAP. It withholds unsupported custom manufacturing probabilities and labels unscored sensor offsets.
 - `models/manifest.json` verifies exact model, demo data, original metric-report and offline-prediction bytes. Git attributes preserve those bytes across Windows/Linux.
 - Models, demo slices, inference/evaluation source, reports and deployment configs are intended to be tracked. Raw downloads and installed environments remain ignored.
-- Render and Vercel configuration is prepared. No claim of an actual hosted deployment, cold-start duration, production load test or Render end-to-end latency is made.
+- Deployed endpoints: [Vercel portal](https://time-guard-ai.vercel.app/), [Render Swagger docs](https://timeguard-ai-api.onrender.com/docs), and [health](https://timeguard-ai-api.onrender.com/health). All three returned HTTP 200 during final documentation synchronization on 20 October 2026; health reported ready=true and benchmark values matching the evaluator. This point-in-time check is not an uptime, cold-start, load-test or end-to-end latency guarantee.
+- Final documentation verification: `python evaluate.py` completed with original benchmark parity PASS and wrote JSON/CSV evidence to `reports/`. Median raw RMSE 14.9007, NASA score 398.7798, late rates 65%/28%, and empirical coverage 84%.
+- UI polish commit `edb8858`: 24 tests passed, JavaScript syntax and diff checks passed; browser verification covered cycle-80 history, recorded four-second Fast Demo through cycle 180, critical accents, dialogs and live manufacturing preset updates.
+- Presentation claims: HDF approximately 97.5%, OSF approximately 91.9%, and baseline binary failure 0.0% are scenario scores, not accuracy metrics. TreeSHAP names are display aliases with raw IDs preserved; exported CSV is an inference/decision audit, not a dispatched work order. See [Loom script](DEMO_SCRIPT.md).
 
-## Earlier screening-stage verification
+## Earlier screening-stage verification (historical; superseded above)
+
+The following records describe the earlier implementation at that time. Statements about synthetic-only replay, unexecuted explanations and ignored model files do not describe the current deployment.
 
 # Verification record
 

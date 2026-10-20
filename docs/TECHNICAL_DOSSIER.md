@@ -1,5 +1,8 @@
 # TimeGuard AI: architecture, dataset strategy and research protocol
 
+> **Final deployment synchronization — 20 October 2026:** The current system is the [Vercel portal](https://time-guard-ai.vercel.app/) backed by [Render Swagger API](https://timeguard-ai-api.onrender.com/docs) and [health](https://timeguard-ai-api.onrender.com/health). This dossier retains design alternatives and reference metadata; current implemented behavior, exact benchmarks and presentation claims are authoritative in the [README](../README.md), [benchmark report](BENCHMARK_RESULTS.md) and [Loom script](DEMO_SCRIPT.md). Median raw RMSE is 14.90 cycles, NASA S-Score 398.78, and nominal 90% intervals achieve 84% empirical coverage. The tau=.20 / 4:1 linear cost decision reduces late overestimates from 65% to 28%, with worse accuracy metrics. Fast Demo is verified-model recorded replay; TreeSHAP display aliases are not the physical metadata table below, and raw IDs remain preserved. CSV is an inference/decision audit for maintenance review. TWF/RNF recall is zero at threshold 0.5; HDF 97.5% and OSF 91.9% are individual uncalibrated preset scores.
+
+
 ## 1. Recommended concept
 
 **TimeGuard AI: uncertainty-aware maintenance windows with cost-sensitive intervention.** Build a small, testable decision system around a strong CPU model. The differentiation is the connection between forecast, trust and action, demonstrated through controlled replay and compared against simpler baselines. Do not sell a new algorithm without evidence. Avoid a sprawling digital twin, LLM maintenance chatbot or transformer trained overnight.

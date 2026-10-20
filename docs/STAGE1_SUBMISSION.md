@@ -1,5 +1,8 @@
 # Stage 1 screening copy
 
+> **Historical screening-stage copy.** This file preserves the Stage 1 proposal and its targets. Current deployed functionality, measured results and presentation disclaimers are in the [README](../README.md), [Stage 2 submission](STAGE2_SUBMISSION.md) and [Loom script](DEMO_SCRIPT.md). Earlier synthetic-demo descriptions and impact targets are not current deployment claims.
+
+
 Dates supplied by the team: idea screening 19 October 2026, development/final judging 20 October 2026. Confirm organizer timing, allowed pre-event preparation, slide limits and form word limits. The supplied reference PDF is an unrelated SIH deck and does not establish this event's rules. The fields below follow the user's requested rubric, not an independently obtained official form.
 
 ## Team name and members

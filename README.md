@@ -2,19 +2,28 @@
 
 **Real-model maintenance forecasts, explicit uncertainty, and an auditable reason to act.**
 
-[![Live Demo on Vercel — deploy ready](https://img.shields.io/badge/Live_Demo_on_Vercel-deploy_ready-b8a4d2)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flikhithayepalagunta-19%2FTimeGuardAI)
-[![API on Render — deploy ready](https://img.shields.io/badge/API_on_Render-deploy_ready-aed1bc)](https://render.com/deploy?repo=https://github.com/likhithayepalagunta-19/TimeGuardAI)
+[![Live Frontend Portal](https://img.shields.io/badge/Live_Frontend-Vercel-b8a4d2)](https://time-guard-ai.vercel.app/)
+[![Live Backend API Docs](https://img.shields.io/badge/API_Docs-Swagger-aed1bc)](https://timeguard-ai-api.onrender.com/docs)
+[![Health Endpoint](https://img.shields.io/badge/Health-Endpoint-d6c797)](https://timeguard-ai-api.onrender.com/health)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-d6c797)](requirements.txt)
 [![Tests](https://github.com/likhithayepalagunta-19/TimeGuardAI/actions/workflows/tests.yml/badge.svg)](https://github.com/likhithayepalagunta-19/TimeGuardAI/actions/workflows/tests.yml)
 [![License MIT](https://img.shields.io/badge/License-MIT-cbb9d7)](LICENSE)
 
-The hosting badges link to deployment setup, **not existing live services**. Render and Vercel account connections are required before live URLs exist. Tests badge reflects actual GitHub Actions state.
+**Live Frontend Portal:** https://time-guard-ai.vercel.app/
 
-**Team:** **Un4seen**
+**Live Backend API Docs (Swagger):** https://timeguard-ai-api.onrender.com/docs
+
+**Health Endpoint:** https://timeguard-ai-api.onrender.com/health
+
+Hosting badges link directly to the deployed services; they are navigation badges, not uptime monitors. The Tests badge reflects actual GitHub Actions state.
+
+**Team Name:** **Team Un4seen**
 
 **Members:** **Likhitha Yepalagunta - RUL modeling and validation**, **Keerthi Sree- Data pipeline and stream replay**, **Nandini-Interface and visual explanation**, **Niharika - Integration, evidence and pitch**
 
 **AI Innovation Hackathon 2026:** Track 1 — AI/ML Methodology · Challenge 10: TimeGuard AI — Predicting Machine Failure from Sensor Streams · Intermediate to Advanced.
+
+**Track & Problem:** Track 1 — AI/ML Methodology | Challenge 10: TimeGuard AI
 
 ## What it does
 
@@ -22,11 +31,12 @@ Late maintenance can cause outages, while premature alerts waste useful componen
 
 The pastel portal offers **live ML inference** and **instant recorded replay**. Offline fallback contains actual precomputed model predictions and TreeSHAP for committed benchmark prefixes. It cannot score arbitrary new inputs. Sensor offsets run through the real model when connected, but invalidate a clean-benchmark coverage claim. Live packet-loss replay causally forward-fills missing sensor/settings rows, holds the last valid forecast on a lost tick and requests review. Offline packet loss emulates delivery loss on the original clean recorded forecasts, without recomputing imputed-window predictions. Operators retain maintenance authority.
 
-## One-command verification
+## One-command benchmark verification
 
-After installing the pinned Python dependencies, run from any fresh clone:
+From a fresh clone with Python 3.12 and an activated environment, install dependencies and run the single-command evaluator:
 
-```powershell
+```bash
+pip install -r requirements.txt
 python evaluate.py
 ```
 
@@ -59,6 +69,14 @@ For offline-only use, open `portal/index.html` directly or double-click `RUN_DEM
 
 Canonical local checkout: `C:\Users\likhi\OneDrive\Documents\TimeGuard`. Git remote: `https://github.com/likhithayepalagunta-19/TimeGuardAI.git`.
 
+## Live presentation behavior
+
+- The Turbofan Monitor opens on engine 20 with recorded historical predictions through **cycle 80**. **⚡ Fast Demo Play** selects engine 20 and replays **verified model outputs from cycle 80 to 180 in four seconds** for presentation speed. This is labeled recorded playback, not 100 live API inferences; regular connected stepping uses live inference.
+- TreeSHAP explains the fitted model. Sensor names in the panel are **display aliases for underlying C-MAPSS sensors**, with raw IDs preserved in hover tooltips and attribution payloads. The aliases are not validated physical metadata and contributions do not establish physical root causes. See the [technical dossier](docs/TECHNICAL_DOSSIER.md) for the distinction.
+- **Export CSV** downloads an **inference and decision audit log for maintenance review**. It does not create or dispatch a work order, control equipment, or replace human authorization.
+- The header status pill opens backend settings. The information icon beside the conformal interval opens provenance and coverage details. API timeouts fall back to labeled recorded outputs; unsupported custom inputs are not assigned invented probabilities.
+- Follow the [3:30 Loom demo script](docs/DEMO_SCRIPT.md) for the deployed walkthrough, stress test and reproducibility close.
+
 ## Architecture
 
 ```mermaid
@@ -84,7 +102,7 @@ flowchart LR
 
 - **Causal preprocessing:** per-engine EMA alpha 0.25, 30-cycle trailing last/mean/std/min/max/slope features and operating settings. No centered smoothing, future cycle or lifespan enters an inference feature.
 - **RUL:** four gradient-boosted quantile regressors at .05, .20, .50 and .95. Training labels are capped at 125 cycles. Engine-separated partitions are 60 fit / 20 calibration / 20 validation, recorded in `reports/rul_engine_splits.json`.
-- **Conservative estimate:** τ=.20 corresponds to an illustrative four-to-one late-versus-early linear error cost. It is a decision quantile. NASA S-score is a separate asymmetric evaluation metric; there is no invented “NASA model.”
+- **Conservative estimate:** $\tau = 0.20$ corresponds to a **4:1 late-vs-early linear cost penalty**. On the fixed benchmark it reduces late RUL overestimates from **65% to 28%**. It is a decision quantile, not the NASA scoring function or an evaluated industrial savings model. NASA S-score is a separate asymmetric evaluation metric; there is no invented “NASA model.”
 - **Uncertainty:** held-out calibration endpoints supply a finite-sample conformal correction to outer quantiles, calibrated against raw RUL. Ordinary exchangeability assumptions limit the nominal marginal coverage claim.
 - **Explanations:** TreeSHAP runs on the actual fitted median model and aggregates temporal features back to sensors. Signed contributions are measured in RUL cycles and are not proof of physical causality.
 - **Alerting:** three lower-bound crossings trigger planning, five safe cycles above a recovery margin clear it. Requests reconstruct state from the observed prefix, preventing cross-user alert contamination. Bad telemetry enters review.
@@ -92,7 +110,7 @@ flowchart LR
 
 ## Exact benchmark results
 
-Reproduced by `python evaluate.py`; full precision is saved in `reports/verification.json`.
+Reproduced by `python evaluate.py`; full precision is saved in `reports/verification.json`. **Loom headline figures: median raw RMSE 14.90 cycles and NASA S-Score 398.78.** The table retains additional precision to match the evaluator.
 
 | FD001 measure, 100 official endpoints | Historical squared-error baseline | Median RUL | Conservative τ=.20 |
 |---|---:|---:|---:|
@@ -101,7 +119,7 @@ Reproduced by `python evaluate.py`; full precision is saved in `reports/verifica
 | NASA S-score, raw labels, lower is better | 308.42161 | 398.77984 | 418.70838 |
 | Any positive RUL overestimate | 62% | 65% | 28% |
 
-Nominal **90%** intervals achieve **84/100 = 84%** empirical official-test coverage, with **54.27088 cycles** mean width. Validation coverage was 90%. **The test coverage target is missed.** A conservative decision reduces late estimates but worsens RMSE and NASA score. The baseline remains better on those accuracy metrics.
+Nominal **90%** intervals achieve **84/100 = 84%** empirical official-test coverage, with **54.27088 cycles** mean width. Validation coverage was 90%. **This six-percentage-point empirical calibration gap means the test coverage target is missed.** A conservative decision reduces late estimates but worsens RMSE and NASA score. The baseline remains better on those accuracy metrics.
 
 | AI4I target, fixed threshold .5 | Precision | Recall | F1 | PR-AUC | Positive support |
 |---|---:|---:|---:|---:|---:|
@@ -115,6 +133,18 @@ Nominal **90%** intervals achieve **84/100 = 84%** empirical official-test cover
 AI4I uses the original binary-stratified random 80/20 split. Synthetic row dependence, rule-generated targets and small minority supports limit generalization. TWF/RNF recall is zero at this threshold.
 
 Historical warm **model-only** four-estimator latency: p50 **4.35 ms**, p95 **7.92 ms** on Intel64 Family 6 Model 186 Stepping 3, Python 3.12.14, scikit-learn 1.9.1. It excludes features, SHAP, HTTP and UI. API responses separately report observed request inference duration. No Render SLA or industrial savings are claimed.
+
+## Manufacturing quick-test presets
+
+These are individual **uncalibrated model probabilities for the exact UI inputs**, not holdout recall, accuracy or guaranteed fault diagnoses. Clicking a chip updates sliders and immediately calls `/api/diagnose/ai4i` when live. Arbitrary custom inputs require the live API; offline fallback only scores exact recorded benchmark presets.
+
+| UI preset | Type | Air / process temperature (K) | Speed (rpm) | Torque (Nm) | Wear (min) | Demonstrated model score |
+|---|---|---|---:|---:|---:|---|
+| Safe Baseline | L | 300 / 310 | 1500 | 40 | 50 | Low binary failure score: 0.0% for this input |
+| Trigger Heat Dissipation (HDF) | L | 302 / 310 | 1350 | 50 | 50 | HDF approximately **97.5%** |
+| Trigger Overstrain / Tool Wear (OSF) | L | 300 / 310 | 1500 | 85 | 250 | OSF approximately **91.9%**; TWF approximately 21.9% |
+
+Modes are independent and may overlap. **Tool-wear (TWF) and random-failure (RNF) recall remain constrained: both are zero at the default 0.5 threshold on this holdout.** The overstrain preset does not promise high TWF probability, and low scores are not proof of safe operation.
 
 ## API contract
 
@@ -137,7 +167,7 @@ Custom `observations` use the exact 26 C-MAPSS columns listed in the technical d
 
 CORS is explicitly `allow_origins=["*"]` with credentials disabled, as requested. This is a public demonstration API, not an authenticated factory control system. It stores no submitted telemetry. Production private telemetry requires authentication, admission/rate limits, narrower origins and deployment-specific operational validation.
 
-## Deployment: three steps each
+## Deployment: current services and redeployment
 
 **Render** (after connecting your GitHub account):
 
@@ -153,9 +183,9 @@ The Blueprint uses `pip install -r requirements.txt`, then `uvicorn api.main:app
 2. **Import TimeGuardAI**, keeping repository root `.`.
 3. Click **Deploy**. The root `vercel.json` explicitly builds only `portal/**` with the static builder and maps `/` to its index, so the Python API does not become a Vercel Function.
 
-**Connect the two services:** open the Vercel site, paste the Render URL in the header and click **Connect / retry**. The URL is stored in that browser. For a shareable judge link, append `?api=<URL-encoded-Render-URL>`. For a deploy-wide default, set `window.TIMEGUARD_API_URL` in `portal/api-config.js` and push. No secret is needed or stored. Sleeping API requests time out and switch to labeled recorded replay; use Connect / retry after the service wakes.
+**Connect the two services:** open the [live portal](https://time-guard-ai.vercel.app/), click the top-right backend status/settings pill, enter `https://timeguard-ai-api.onrender.com` and click **Connect / retry**. The URL is stored in that browser. For a shareable judge link, append `?api=<URL-encoded-Render-URL>`. For a deploy-wide default, set `window.TIMEGUARD_API_URL` in `portal/api-config.js` and push. No secret is needed or stored. Sleeping API requests time out and switch to labeled recorded replay; use Connect / retry after the service wakes.
 
-Actual deployment and live service URLs remain unverified until you complete those account actions. [Render Blueprint documentation](https://render.com/docs/blueprint-spec), [Vercel static configuration](https://vercel.com/docs/project-configuration/vercel-json).
+The deployed portal, Swagger documentation and health URLs are listed above. Deployment configuration enables redeployment; it does not establish an uptime, cold-start or latency guarantee. [Render Blueprint documentation](https://render.com/docs/blueprint-spec), [Vercel static configuration](https://vercel.com/docs/project-configuration/vercel-json).
 
 ## Repository and artifact boundaries
 
@@ -192,7 +222,7 @@ CI runs those commands on Linux and uploads verification reports. Endpoint tests
 - [Stage 1 form copy](docs/STAGE1_SUBMISSION.md), [Stage 2 copy](docs/STAGE2_SUBMISSION.md), [technical dossier](docs/TECHNICAL_DOSSIER.md).
 - [Editable pitch deck](docs/presentation/TimeGuardAI_Stage1_Final.pptx), [PDF](docs/presentation/TimeGuardAI_Stage1_Final.pdf). These record the earlier screening stage; the live portal supersedes their synthetic demo.
 - [Demo script](docs/DEMO_SCRIPT.md), [historical UI images](docs/screenshots/TimeGuard_UI_Images.zip).
-- Updated UI captures are saved under `docs/screenshots/live-portal/` after browser verification. Add a final hosted demo/video URL when available.
+- Updated UI captures are saved under `docs/screenshots/live-portal/` after browser verification. The live hosted portal is linked above; a public Loom recording URL has not been supplied.
 
 ## Limitations and next research steps
 
