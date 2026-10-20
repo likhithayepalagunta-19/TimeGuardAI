@@ -1,9 +1,12 @@
-numpy>=1.26,<3
-pandas>=2.2,<3
-scikit-learn>=1.5,<2
-scipy>=1.13,<2
-joblib>=1.4,<2
-streamlit>=1.39,<2
-plotly>=5.24,<7
-shap>=0.46,<1
-pytest>=8,<10
+# Versions match the committed scikit-learn artifacts. Python 3.12 is recommended.
+numpy==2.3.5
+pandas==2.3.3
+scikit-learn==1.9.1
+scipy==1.18.1
+joblib==1.6.0
+shap==0.54.1
+fastapi==0.149.0
+pydantic==2.14.0
+uvicorn==0.54.0
+httpx==0.28.1
+pytest==9.1.1

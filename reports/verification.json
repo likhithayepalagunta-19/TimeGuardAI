@@ -1,0 +1,78 @@
+{
+  "verified": true,
+  "model_version": "fd001-ai4i-37ac5bd0c715",
+  "protocol": "Frozen official FD001 final endpoints (100 engines), original AI4I holdout (2000 rows). No training or test-driven recalibration.",
+  "rul": {
+    "point": {
+      "rmse_raw": 14.90066396168718,
+      "rmse_clipped": 14.081800394080593,
+      "nasa_score_raw": 398.7798437374006,
+      "late_rate": 0.65
+    },
+    "risk": {
+      "rmse_raw": 17.621846935476995,
+      "rmse_clipped": 15.808565218358853,
+      "nasa_score_raw": 418.70838381046303,
+      "late_rate": 0.28
+    },
+    "interval": {
+      "nominal_coverage": 0.9,
+      "coverage": 0.84,
+      "mean_width": 54.27088390629396
+    }
+  },
+  "ai4i": {
+    "binary": {
+      "precision": 0.9491525423728814,
+      "recall": 0.8235294117647058,
+      "f1": 0.8818897637795275,
+      "pr_auc": 0.8824145976134058,
+      "positive_support": 68
+    },
+    "TWF": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pr_auc": 0.07235831146698717,
+      "positive_support": 10
+    },
+    "HDF": {
+      "precision": 0.9310344827586207,
+      "recall": 0.9310344827586207,
+      "f1": 0.9310344827586207,
+      "pr_auc": 0.9454965652166849,
+      "positive_support": 29
+    },
+    "PWF": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "pr_auc": 0.9999999999999998,
+      "positive_support": 13
+    },
+    "OSF": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "pr_auc": 1.0,
+      "positive_support": 16
+    },
+    "RNF": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pr_auc": 0.03213553113553114,
+      "positive_support": 4
+    }
+  },
+  "counts": {
+    "rul_engines": 100,
+    "ai4i_rows": 2000
+  },
+  "environment": {
+    "python": "3.12.14",
+    "sklearn": "1.9.1",
+    "numpy": "2.3.5",
+    "pandas": "2.3.3"
+  }
+}

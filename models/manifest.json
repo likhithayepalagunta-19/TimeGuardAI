@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "model_version": "fd001-ai4i-37ac5bd0c715",
+  "environment": {
+    "numpy": "2.3.5",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "joblib": "1.6.0",
+    "shap": "0.54.1"
+  },
+  "counts": {
+    "rul_endpoints": 100,
+    "ai4i_holdout": 2000,
+    "replay_engines": 3
+  },
+  "files": {
+    "models/rul.joblib": {
+      "sha256": "37ac5bd0c715edc766f5f0a1ac7f4f54ae8d8cc7cdbcdd63ffe4c489df48f9fb",
+      "size_bytes": 562526
+    },
+    "models/modes.joblib": {
+      "sha256": "63b4f466f997d685cc0948e72fd501d54d2b7fc2a8ad996fa518720db2e5f43d",
+      "size_bytes": 9673352
+    },
+    "data/demo_slice/cmapss_endpoints.csv": {
+      "sha256": "633023570eb8240143f47ddb26ca560ad197a23d0c44772b2a67d419bc85d681",
+      "size_bytes": 170607
+    },
+    "data/demo_slice/cmapss_replay.csv": {
+      "sha256": "5f4dc68921cfca3c827190af29b66d9a4fb8d3a8ce83e255389cd2982abe6afc",
+      "size_bytes": 154569
+    },
+    "data/demo_slice/ai4i_holdout.csv": {
+      "sha256": "76ae67ac9e95652e8fc9c314b593d7313f293934da7381802b74dd25b91aa45e",
+      "size_bytes": 102925
+    },
+    "data/demo_slice/ai4i_presets.json": {
+      "sha256": "def200118ae466b5c3354bde314ff69140d8b0283b35820fb3575dc5ba4226db",
+      "size_bytes": 4074
+    },
+    "reports/rul.json": {
+      "sha256": "41298e116958226083882eb14e1b3cae6e6319e275a68500c44cae273c48e895",
+      "size_bytes": 1161
+    },
+    "reports/modes.json": {
+      "sha256": "db6e2caa90eaa1d5022b0d744731ba1d34142941a1995d3af772c98553f6a18e",
+      "size_bytes": 1330
+    },
+    "portal/offline-data.js": {
+      "sha256": "7085d9f25d1335affe3e477945a2403d63b6d254bc19e6ceaf2314e8ebeb907c",
+      "size_bytes": 211290
+    }
+  }
+}

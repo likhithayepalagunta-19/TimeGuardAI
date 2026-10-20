@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 data/raw/
 data/processed/
-models/*.joblib
+# Deployable models are explicitly tracked and checksum verified.
 build/
 .codex-finalizer/
 .DS_Store

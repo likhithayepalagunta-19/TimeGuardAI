@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "builds": [{"src": "portal/**", "use": "@vercel/static"}],
+  "routes": [
+    {"src": "/", "dest": "/portal/index.html"},
+    {"src": "/(.*)", "dest": "/portal/$1"}
+  ]
+}

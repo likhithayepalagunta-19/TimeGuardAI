@@ -1,0 +1,182 @@
+[
+  {
+    "id": 4852,
+    "name": "HDF benchmark example \u00b7 UDI 4852",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 303.7,
+      "process_temperature": 312.1,
+      "rotational_speed": 1363.0,
+      "torque": 51.8,
+      "tool_wear": 90.0
+    }
+  },
+  {
+    "id": 4496,
+    "name": "HDF benchmark example \u00b7 UDI 4496",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 302.6,
+      "process_temperature": 310.4,
+      "rotational_speed": 1359.0,
+      "torque": 57.2,
+      "tool_wear": 67.0
+    }
+  },
+  {
+    "id": 1392,
+    "name": "PWF benchmark example \u00b7 UDI 1392",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 298.9,
+      "process_temperature": 310.2,
+      "rotational_speed": 2737.0,
+      "torque": 8.8,
+      "tool_wear": 142.0
+    }
+  },
+  {
+    "id": 8583,
+    "name": "PWF benchmark example \u00b7 UDI 8583",
+    "telemetry": {
+      "type": "M",
+      "air_temperature": 297.5,
+      "process_temperature": 308.1,
+      "rotational_speed": 1334.0,
+      "torque": 72.0,
+      "tool_wear": 151.0
+    }
+  },
+  {
+    "id": 9665,
+    "name": "OSF benchmark example \u00b7 UDI 9665",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 299.1,
+      "process_temperature": 310.2,
+      "rotational_speed": 1317.0,
+      "torque": 54.8,
+      "tool_wear": 231.0
+    }
+  },
+  {
+    "id": 927,
+    "name": "OSF benchmark example \u00b7 UDI 927",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 295.6,
+      "process_temperature": 306.1,
+      "rotational_speed": 1372.0,
+      "torque": 55.6,
+      "tool_wear": 215.0
+    }
+  },
+  {
+    "id": 9175,
+    "name": "TWF benchmark example \u00b7 UDI 9175",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 297.8,
+      "process_temperature": 308.9,
+      "rotational_speed": 1871.0,
+      "torque": 25.6,
+      "tool_wear": 200.0
+    }
+  },
+  {
+    "id": 2672,
+    "name": "TWF benchmark example \u00b7 UDI 2672",
+    "telemetry": {
+      "type": "M",
+      "air_temperature": 299.7,
+      "process_temperature": 309.3,
+      "rotational_speed": 1399.0,
+      "torque": 41.9,
+      "tool_wear": 221.0
+    }
+  },
+  {
+    "id": 5490,
+    "name": "RNF benchmark example \u00b7 UDI 5490",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 302.6,
+      "process_temperature": 312.1,
+      "rotational_speed": 1499.0,
+      "torque": 35.0,
+      "tool_wear": 215.0
+    }
+  },
+  {
+    "id": 6914,
+    "name": "RNF benchmark example \u00b7 UDI 6914",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 300.8,
+      "process_temperature": 311.2,
+      "rotational_speed": 1481.0,
+      "torque": 38.5,
+      "tool_wear": 181.0
+    }
+  },
+  {
+    "id": 2998,
+    "name": "Normal benchmark example \u00b7 UDI 2998",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 300.5,
+      "process_temperature": 309.8,
+      "rotational_speed": 1345.0,
+      "torque": 62.7,
+      "tool_wear": 153.0
+    }
+  },
+  {
+    "id": 4872,
+    "name": "Normal benchmark example \u00b7 UDI 4872",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 303.7,
+      "process_temperature": 312.4,
+      "rotational_speed": 1513.0,
+      "torque": 40.1,
+      "tool_wear": 135.0
+    }
+  },
+  {
+    "id": 3859,
+    "name": "Normal benchmark example \u00b7 UDI 3859",
+    "telemetry": {
+      "type": "L",
+      "air_temperature": 302.5,
+      "process_temperature": 311.4,
+      "rotational_speed": 1559.0,
+      "torque": 37.6,
+      "tool_wear": 209.0
+    }
+  },
+  {
+    "id": 952,
+    "name": "Normal benchmark example \u00b7 UDI 952",
+    "telemetry": {
+      "type": "H",
+      "air_temperature": 295.6,
+      "process_temperature": 306.3,
+      "rotational_speed": 1509.0,
+      "torque": 35.8,
+      "tool_wear": 60.0
+    }
+  },
+  {
+    "id": 6464,
+    "name": "Normal benchmark example \u00b7 UDI 6464",
+    "telemetry": {
+      "type": "H",
+      "air_temperature": 300.5,
+      "process_temperature": 310.0,
+      "rotational_speed": 1358.0,
+      "torque": 60.4,
+      "tool_wear": 102.0
+    }
+  }
+]

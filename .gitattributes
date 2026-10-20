@@ -5,3 +5,10 @@
 *.jpg binary
 *.zip binary
 *.joblib binary
+
+data/demo_slice/*.csv -text
+data/demo_slice/*.json -text
+portal/offline-data.js -text
+reports/*.json -text
+reports/*.csv -text
+models/manifest.json -text
