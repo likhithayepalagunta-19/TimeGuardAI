@@ -10,7 +10,9 @@
 
 The hosting badges link to deployment setup, **not existing live services**. Render and Vercel account connections are required before live URLs exist. Tests badge reflects actual GitHub Actions state.
 
-**Team:** Unseen · Members: [insert names and roles]
+**Team:** **Un4seen**
+
+**Members:** **Likhitha Yepalagunta - RUL modeling and validation**, **Keerthi Sree- Data pipeline and stream replay**, **Nandini-Interface and visual explanation**, **Niharika - Integration, evidence and pitch**
 
 **AI Innovation Hackathon 2026:** Track 1 — AI/ML Methodology · Challenge 10: TimeGuard AI — Predicting Machine Failure from Sensor Streams · Intermediate to Advanced.
 
