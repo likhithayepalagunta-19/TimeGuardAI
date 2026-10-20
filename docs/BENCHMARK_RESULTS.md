@@ -36,10 +36,10 @@ High scores for some labels partly reflect the synthetic generation rules and sm
 
 ## Not measured
 
-Full maintenance cost simulation, industrial downtime reduction, alert-episode rate on held-out trajectories, full end-to-end latency, drift-conditioned coverage and explanation latency. Live fitted-model TreeSHAP and the portal have been verified; this does not establish measured explanation latency or a standalone explanation-export run. Earlier Stage 1 synthetic screenshots are historical references, not the current deployed workflow.
+Full maintenance cost simulation, industrial downtime reduction, alert-episode rate on held-out trajectories, full end-to-end latency, drift-conditioned coverage and explanation latency. Live fitted-model TreeSHAP and the portal have been verified; this does not establish measured explanation latency or a standalone explanation-export run. Earlier synthetic prototype screenshots are historical references, not the current deployed workflow.
 
-## Deployed presentation presets (not benchmark accuracy)
+## Deployed scenario presets (not benchmark accuracy)
 
 The [live portal](https://time-guard-ai.vercel.app/) calls the [documented API](https://timeguard-ai-api.onrender.com/docs). The fixed UI scenarios produce baseline binary probability **0.0%**, heat-scenario HDF **97.5%**, and overstrain-scenario OSF **91.9%** (rounded). TWF on the overstrain scenario is approximately 21.9%; high OSF does not imply high TWF. Inputs are listed in the README. These are uncalibrated, individual scenario probabilities and do not alter the holdout results above.
 
-Fast Demo replays verified model outputs for presentation speed. TreeSHAP sensor names are display aliases with raw IDs preserved. CSV is an inference and decision audit log for maintenance review. See [the synchronized Loom script](DEMO_SCRIPT.md). Run `pip install -r requirements.txt` followed by `python evaluate.py` to verify all manifest-listed artifacts and save JSON/CSV evidence to `reports/`.
+Fast Demo replays verified model outputs for presentation speed. TreeSHAP sensor names are display aliases with raw IDs preserved. CSV is an inference and decision audit log for maintenance review. See [the synchronized system walkthrough](SYSTEM_WALKTHROUGH.md). Run `pip install -r requirements.txt` followed by `python evaluate.py` to verify all manifest-listed artifacts and save JSON/CSV evidence to `reports/`.

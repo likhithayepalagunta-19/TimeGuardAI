@@ -10,20 +10,20 @@
 - Deployed endpoints: [Vercel portal](https://time-guard-ai.vercel.app/), [Render Swagger docs](https://timeguard-ai-api.onrender.com/docs), and [health](https://timeguard-ai-api.onrender.com/health). All three returned HTTP 200 during final documentation synchronization on 20 October 2026; health reported ready=true and benchmark values matching the evaluator. This point-in-time check is not an uptime, cold-start, load-test or end-to-end latency guarantee.
 - Final documentation verification: `python evaluate.py` completed with original benchmark parity PASS and wrote JSON/CSV evidence to `reports/`. Median raw RMSE 14.9007, NASA score 398.7798, late rates 65%/28%, and empirical coverage 84%.
 - UI polish commit `edb8858`: 24 tests passed, JavaScript syntax and diff checks passed; browser verification covered cycle-80 history, recorded four-second Fast Demo through cycle 180, critical accents, dialogs and live manufacturing preset updates.
-- Presentation claims: HDF approximately 97.5%, OSF approximately 91.9%, and baseline binary failure 0.0% are scenario scores, not accuracy metrics. TreeSHAP names are display aliases with raw IDs preserved; exported CSV is an inference/decision audit, not a dispatched work order. See [Loom script](DEMO_SCRIPT.md).
+- Presentation claims: HDF approximately 97.5%, OSF approximately 91.9%, and baseline binary failure 0.0% are scenario scores, not accuracy metrics. TreeSHAP names are display aliases with raw IDs preserved; exported CSV is an inference/decision audit, not a dispatched work order. See [system walkthrough](SYSTEM_WALKTHROUGH.md).
 
-## Earlier screening-stage verification (historical; superseded above)
+## Historical prototype verification (superseded above)
 
 The following records describe the earlier implementation at that time. Statements about synthetic-only replay, unexecuted explanations and ignored model files do not describe the current deployment.
 
-# Verification record
+### Verification record
 
 19 October 2026.
 
 - Four core tests pass: prefix invariance of causal features, conformal finite-sample order statistic, asymmetric NASA penalty, and alert persistence/recovery after missing telemetry.
 - All Python source files compile and the browser JavaScript passes its syntax check.
 - Browser verification covers step, accelerated replay through completion, reset, sensor-offset review, missing-packet forecast hold and successful CSV download.
-- Stage 1 portal screenshot is in `docs/screenshots/portal.png`.
+- An earlier prototype capture is in `docs/screenshots/portal.png`.
 - The 12-slide PowerPoint passes package integrity, geometry/font checks and first-party reimport. Every rendered slide was visually inspected. This is not a claim of inspection in Microsoft PowerPoint.
 - PDF is an image-based convenience export of the inspected slides. Use the PPTX for editable content and native flowchart objects.
 - Official C-MAPSS and AI4I downloads validated required filenames and archive structure. SHA256 provenance is retained in `reports/data_provenance.json`.

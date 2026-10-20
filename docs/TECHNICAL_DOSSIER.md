@@ -1,11 +1,11 @@
 # TimeGuard AI: architecture, dataset strategy and research protocol
 
-> **Final deployment synchronization — 20 October 2026:** The current system is the [Vercel portal](https://time-guard-ai.vercel.app/) backed by [Render Swagger API](https://timeguard-ai-api.onrender.com/docs) and [health](https://timeguard-ai-api.onrender.com/health). This dossier retains design alternatives and reference metadata; current implemented behavior, exact benchmarks and presentation claims are authoritative in the [README](../README.md), [benchmark report](BENCHMARK_RESULTS.md) and [Loom script](DEMO_SCRIPT.md). Median raw RMSE is 14.90 cycles, NASA S-Score 398.78, and nominal 90% intervals achieve 84% empirical coverage. The tau=.20 / 4:1 linear cost decision reduces late overestimates from 65% to 28%, with worse accuracy metrics. Fast Demo is verified-model recorded replay; TreeSHAP display aliases are not the physical metadata table below, and raw IDs remain preserved. CSV is an inference/decision audit for maintenance review. TWF/RNF recall is zero at threshold 0.5; HDF 97.5% and OSF 91.9% are individual uncalibrated preset scores.
+> **Final deployment synchronization — 20 October 2026:** The current system is the [Vercel portal](https://time-guard-ai.vercel.app/) backed by [Render Swagger API](https://timeguard-ai-api.onrender.com/docs) and [health](https://timeguard-ai-api.onrender.com/health). This dossier retains design alternatives and reference metadata; current implemented behavior, exact benchmarks and presentation claims are authoritative in the [README](../README.md), [benchmark report](BENCHMARK_RESULTS.md) and [system walkthrough](SYSTEM_WALKTHROUGH.md). Median raw RMSE is 14.90 cycles, NASA S-Score 398.78, and nominal 90% intervals achieve 84% empirical coverage. The tau=.20 / 4:1 linear cost decision reduces late overestimates from 65% to 28%, with worse accuracy metrics. Fast Demo is verified-model recorded replay; TreeSHAP display aliases are not the physical metadata table below, and raw IDs remain preserved. CSV is an inference/decision audit for maintenance review. TWF/RNF recall is zero at threshold 0.5; HDF 97.5% and OSF 91.9% are individual uncalibrated preset scores.
 
 
-## 1. Recommended concept
+## 1. System concept
 
-**TimeGuard AI: uncertainty-aware maintenance windows with cost-sensitive intervention.** Build a small, testable decision system around a strong CPU model. The differentiation is the connection between forecast, trust and action, demonstrated through controlled replay and compared against simpler baselines. Do not sell a new algorithm without evidence. Avoid a sprawling digital twin, LLM maintenance chatbot or transformer trained overnight.
+**TimeGuard AI: uncertainty-aware maintenance windows with cost-sensitive intervention.** Build a small, testable decision system around a strong CPU model. The differentiation is the connection between forecast, trust and action, demonstrated through controlled replay and compared against simpler baselines. Do not sell a new algorithm without evidence. The scope prioritizes a reproducible CPU model and explicit decision contracts over unsupported complexity.
 
 ### Industrial pain points and the corresponding design
 
@@ -46,7 +46,7 @@ curl.exe -L --fail 'https://data.nasa.gov/docs/legacy/CMAPSSData.zip' -o CMAPSSD
 
 NASA uses a redirect which can fail in restricted clients. Do not claim universal zero-delay availability. The catalog currently advertises that ZIP URL. The loader verifies required files after download. An HTML error saved as a ZIP must fail validation. Alternate official entry: https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/ .
 
-FEMTO reference: https://members.femto-st.fr/patrick-nectoux/fr/pronostic-defaillances-roulement-pronostia . Distribution mirror linked from the NASA/PHM repository: https://data.phmsociety.org/nasa/ . Resolve the `FEMTO Bearing.zip` download from the repository page and inspect archive filenames, size and source before use. No verified one-click FEMTO binary URL is asserted here, and it is intentionally excluded from the six-hour critical path. Cite Nectoux et al., *PRONOSTIA: An Experimental Platform for Bearings Accelerated Life Test*, PHM 2012. Check distribution terms separately from code licensing.
+FEMTO reference: https://members.femto-st.fr/patrick-nectoux/fr/pronostic-defaillances-roulement-pronostia . Distribution mirror linked from the NASA/PHM repository: https://data.phmsociety.org/nasa/ . Resolve the `FEMTO Bearing.zip` download from the repository page and inspect archive filenames, size and source before use. No verified one-click FEMTO binary URL is asserted here, and it is intentionally excluded from the current implementation scope. Cite Nectoux et al., *PRONOSTIA: An Experimental Platform for Bearings Accelerated Life Test*, PHM 2012. Check distribution terms separately from code licensing.
 
 ### Exact C-MAPSS schema
 
@@ -92,7 +92,7 @@ AI4I's generated mechanisms include wear, heat dissipation, power and overstrain
 
 ### PRONOSTIA schema and preprocessing
 
-The challenge has six complete training bearing lives and eleven truncated test lives across three operating conditions. Accelerometer CSV bursts typically contain `hour, minute, second, microsecond, horizontal_acceleration, vertical_acceleration`. Each burst has 2,560 points sampled at 25.6 kHz, recording 0.1 seconds every 10 seconds. Temperature files have their own sampling and column contract, typically time fields plus temperature. Validate delimiters and headers against the particular distribution, not a universal pandas assumption. Extract burst-level RMS, kurtosis, crest factor and spectral band energy. Split by bearing, retain condition metadata and label remaining life in **seconds or bursts**, not turbofan cycles. A small life-level sample makes calibration uncertain.
+The PRONOSTIA benchmark has six complete training bearing lives and eleven truncated test lives across three operating conditions. Accelerometer CSV bursts typically contain `hour, minute, second, microsecond, horizontal_acceleration, vertical_acceleration`. Each burst has 2,560 points sampled at 25.6 kHz, recording 0.1 seconds every 10 seconds. Temperature files have their own sampling and column contract, typically time fields plus temperature. Validate delimiters and headers against the particular distribution, not a universal pandas assumption. Extract burst-level RMS, kurtosis, crest factor and spectral band energy. Split by bearing, retain condition metadata and label remaining life in **seconds or bursts**, not turbofan cycles. A small life-level sample makes calibration uncertain.
 
 ## 3. Causal feature pipeline
 
@@ -132,7 +132,7 @@ Report interval coverage together with mean/median width, test-engine sample siz
 
 Use TreeSHAP on the actual fitted RUL estimator with fixed model version and feature names. Report sign: a negative contribution to RUL reduces predicted life. Aggregate mean/slope contributions back to sensor, then optionally into thermal (`s2,s3,s4`), pressure (`s7,s11`), rotational (`s8,s9,s13,s14`) and other/flow (`s12,s15,s17,s20,s21`) groups. Keep the ungrouped view accessible. These are explanatory categories, not proven root causes. Correlated engineered windows can split importance across features. Cache or throttle explanation to about once per second and measure explanation latency separately from prediction.
 
-Do not call a neural attention map an equivalent proof of sensor causality. A TCN with attention still needs perturbation tests, stable attribution and comparison to baseline explanations. In the Stage 1 portal, contribution bars are explicitly heuristic scenario weights, not TreeSHAP.
+Do not call a neural attention map an equivalent proof of sensor causality. A TCN with attention still needs perturbation tests, stable attribution and comparison to baseline explanations. Historical prototype screenshots may show heuristic scenario weights; the current portal uses live or recorded fitted-model TreeSHAP with explicit provenance.
 
 ## 7. Evaluation and ablation matrix
 
@@ -146,13 +146,13 @@ Do not call a neural attention map an equivalent proof of sensor causality. A TC
 | Clean vs noise/offset/missing replay | Reveal robustness limits | Error, review duration and coverage shift |
 | AI4I physical vs engineered features | Identify rule reconstruction benefit | Same held-out rows, per-mode results |
 
-Use held-out engine bootstrap intervals for RUL comparisons if time permits. Report feature+inference latency separately from model-only and SHAP latency. Do not average row-level scores to inflate effective sample size. Record CPU, Python/library versions, random seeds, git commit, data hashes and splits. A short deterministic replay and complete evidence table will score better than an unvalidated complex model.
+Use held-out engine bootstrap intervals for RUL comparisons if time permits. Report feature+inference latency separately from model-only and SHAP latency. Do not average row-level scores to inflate effective sample size. Record CPU, Python/library versions, random seeds, git commit, data hashes and splits. Deterministic replay and complete evidence tables make results easier to assess and reproduce.
 
-## 8. Feasibility, positioning and risks
+## 8. Implementation boundaries and research extensions
 
-The six-hour critical path is FD001, causal windows, CPU quantiles, calibration, simple real replay and transparent evaluation. AI4I classification is inexpensive, but complete it only after preserving core RUL quality. Reserve 90 minutes of the stated 7.5-hour window for bug fixes, screenshots, submission and rehearsal. Do not let PRONOSTIA download, a transformer, cloud hosting or an LLM consume the core window.
+The implemented architecture combines FD001 causal windows, CPU quantile models, endpoint calibration, separate AI4I classifiers, typed API inference and transparent software replay. XGBoost custom objectives and temporal neural networks remain documented alternatives, not deployed models. A physical gateway, PRONOSTIA validation, maintenance-cost simulation and drift-adaptive calibration remain future extensions.
 
-Stage 1 must communicate the pain, differentiated method, data feasibility, honest targets and demo. Stage 2 must show measured outputs, reproduce them from commands and explain failure cases. No method guarantees a win. Check the actual organizer rules before using prepared code during a timed round or submitting AI-assisted content.
+Validation must preserve the recorded partitions and report failure cases. Test-derived calibration tuning requires a fresh independent protocol. Public deployment demonstrates integration; it does not establish factory reliability, safety certification or operational savings.
 
 ## 9. Sources
 
