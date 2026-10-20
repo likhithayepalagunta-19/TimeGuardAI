@@ -31,3 +31,5 @@ Canonical destination verification:
 - Four core tests pass using that environment.
 - Headless Streamlit checks pass: load actual RUL weights, advance one replay cycle, and run manufacturing diagnosis. This does not claim interactive browser inspection of Streamlit.
 - Local and GitHub main are synchronized. Raw data, model binaries and the environment remain local and ignored.
+
+Linux CI: GitHub Actions run 39377261783 passed the real endpoint/core tests, original benchmark evaluation, and JavaScript syntax check on commit 6a884ec.
